@@ -5,7 +5,7 @@ import OpenAI from 'openai';
 
 export default defineEventHandler( async (event) => {
   const body = await readBody(event)
-  
+  // console.log(body);
   const {OPEN_API_KEY} = useRuntimeConfig()
   const openai = new OpenAI({apiKey: OPEN_API_KEY});
 
@@ -14,6 +14,6 @@ export default defineEventHandler( async (event) => {
     model: "gpt-3.5-turbo",
     temperature: body.temperature || 1,
   });
-  console.log(completion.choices);
+
   return completion.choices[0]
 })
