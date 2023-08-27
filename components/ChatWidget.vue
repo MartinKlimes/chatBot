@@ -16,21 +16,26 @@ const bot = ref<User>({
   avatar: 'bot.jpg',
 })
 
+
+const messagesAi = computed(() => 
+  messages.value.map((message) => ({
+    role: message.userId, 
+    content: message.text
+  })).slice(-50)
+)
+
+
 async function sendMessage(message: Message) {
   
   messages.value.push(message)
   usersTyping.value.push(bot.value)
 
-  const messagesAi = messages.value.map((message) => {
-    return {role: message.userId, content: message.text}
-  })
 
   const res = await $fetch('/api/ai', {
     method: 'POST',
-    body: {message: messagesAi },
+    body: {message: messagesAi.value },
     },
   )
-  console.log(res.message);
   usersTyping.value = []
 
   const botMessage: Message = {

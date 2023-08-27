@@ -32,7 +32,6 @@ function getUser(userId: string) {
 }
 
 watch(props.messages, () => {
-  console.log('ted');
   nextTick(() => messageBox.value.scrollTop = messageBox.value.scrollHeight)
   
 
