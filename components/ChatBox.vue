@@ -36,12 +36,16 @@ watch(props.messages, () => {
   
 
 })
+const html = "<p></p>";
 
 </script>
 
 <template>
-  <div id="chatBox"
-    class="fixed bottom-[10px] right-[10px] w-[350px] bg-gray-700 rounded-md p-1"
+  <div>
+  {{ html }}
+</div>
+  <!-- <div id="chatBox"
+    class="  bg-gray-700 rounded-md p-1"
   >
     <div class="max-h-[500px] overflow-y-auto my-2 " ref="messageBox">
       <ChatBubble
@@ -63,7 +67,7 @@ watch(props.messages, () => {
       placeholder="Type here"
       class="input input-bordered w-full max-w-xs"
     />
-  </div>
+  </div> -->
 </template>
 
 <style scoped></style>
