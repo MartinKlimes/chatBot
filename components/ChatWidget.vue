@@ -16,6 +16,15 @@ const bot = ref<User>({
   avatar: "bot.jpg",
 });
 
+
+const messagesAi = computed(() => 
+  messages.value.map((message) => ({
+    role: message.userId, 
+    content: message.text
+  })).slice(-50)
+)
+
+
 async function sendMessage(message: Message) {
   messages.value.push(message);
   usersTyping.value.push(bot.value);
