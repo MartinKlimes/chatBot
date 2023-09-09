@@ -9,3 +9,8 @@ export interface User {
     createdAt: Date;
     text: string;
   }
+
+export interface Payload{
+  url: string
+  temperature: number
+}

@@ -38,7 +38,7 @@ watch(props.messages, () => {
 </script>
 
 <template>
-  <div class="">
+  <div class="fixed bottom-[10px] right-[10px]">
     <button
       v-show="!isOpen"
       @click="isOpen = true"
@@ -49,14 +49,14 @@ watch(props.messages, () => {
 
     <div
       v-if="isOpen"
-      class=" bg-gray-300 lg:w-[800px] md:w-[600px] dark:bg-gray-800 rounded-md h-[70vh]"
+      class=" bg-gray-300 rounded-md w-[450px] overflow-hidden dark:bg-gray-800 "
       
     >
       <header
         class="dark:bg-gray-900 bg-gray-200 px-4 flex justify-between items-center"
       >
         Customer Support Chat
-        <button class="p-4 pr-0" @click="isOpen = false">
+        <button class="p-4 pr-0 " @click="isOpen = false">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -84,7 +84,7 @@ watch(props.messages, () => {
           <li>How was this tool built?</li>
         </ul>
       </div>
-      <div v-else class="h-[70vh] overflow-y-auto my-2 p-4" ref="messageBox">
+      <div v-else class="max-h-[70vh] overflow-y-auto my-2 p-4" ref="messageBox">
         <ChatBubble
           v-for="message in messages"
           :key="message.id"
